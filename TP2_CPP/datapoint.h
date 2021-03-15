@@ -12,15 +12,17 @@ class Datapoint{
 		double temperature;
 	
 	public:
-		Datapoint(std::string timestamp, double latitude, double longitude, double temparature);
+		Datapoint(std::string timestamp, double latitude, double longitude, double temperature);
 		
+        std::string getTimestamp() const;
+        
 		double getLatitude() const;
 
 		double getLongitude() const;
+        
+        double getTemperature() const;
 
 		bool operator<(const Datapoint& right_datapoint) const;
-        
-        std::string printData() const;
 
 		
 };

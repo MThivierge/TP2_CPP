@@ -1,12 +1,16 @@
 #include "datapoint.h"
 
-Datapoint::Datapoint(std::string timestamp, double latitude, double longitude, double temparature){
+Datapoint::Datapoint(std::string timestamp, double latitude, double longitude, double temperature){
 	this->timestamp = timestamp;
 	this->latitude = latitude;
 	this->longitude = longitude;
-	this->temperature = (temperature - 32)*5/9;
+	this->temperature = (temperature - 32)/1.8;
 }
 
+std::string Datapoint::getTimestamp() const{
+	return this->timestamp;
+}
+        
 double Datapoint::getLatitude() const{
 	return this->latitude;
 }
@@ -14,6 +18,11 @@ double Datapoint::getLatitude() const{
 double Datapoint::getLongitude() const{
 	return this->longitude;
 }
+        
+double Datapoint::getTemperature() const{
+	return this->temperature;
+}
+
 		
 bool Datapoint::operator<(const Datapoint& right_datapoint) const{
 
@@ -29,9 +38,4 @@ bool Datapoint::operator<(const Datapoint& right_datapoint) const{
 	
 	return false;
 
-}
-
-std::string Datapoint::printData() const{
-    std::string data_to_print= timestamp+" "+std::to_string(latitude)+" "+std::to_string(longitude)+" "+std::to_string(temperature);
-    return data_to_print;
 }
