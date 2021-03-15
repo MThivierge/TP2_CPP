@@ -12,6 +12,7 @@ int main(){
     //Ouverture du fichier rawdata.txt pour la lecture des données
     std::ifstream rawdata_file("rawdata.txt");
     
+    //Extraction des données du fichier rawdata.txt
     while(!rawdata_file.eof()){
         
         double latitude;
@@ -41,12 +42,13 @@ int main(){
     
     rawdata_file.close();
     
-    //Ouverture du fichier candata.txt pour y écrire les données
+    //Ouverture du fichier candata.txt
     std::ofstream candata_file("candata.txt");
     
+    //Écriture des données de chaque datapoint dans le fichier candata.txt
     std::set<Datapoint>::iterator it;
     for(it = datas.begin() ; it!= datas.end() ; it++){
-        candata_file << it->getTimestamp()<<" "<<it->getLatitude()<<" "<<it->getLongitude()<<" "<<it->getTemperature()<<std::endl;
+        candata_file <<it->getTimestamp()<<" "<<it->getLatitude()<<" "<<it->getLongitude()<<" "<<it->getTemperature()<<std::endl;
     }
     
     candata_file.close();
