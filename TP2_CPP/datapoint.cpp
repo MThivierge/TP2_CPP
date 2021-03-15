@@ -4,7 +4,7 @@ Datapoint::Datapoint(std::string timestamp, double latitude, double longitude, i
 	this->timestamp = timestamp;
 	this->latitude = latitude;
 	this->longitude = longitude;
-	this->temperature = temperature;
+	this->temperature = (temperature - 32)*5/9;
 }
 
 double Datapoint::getLatitude() const{
