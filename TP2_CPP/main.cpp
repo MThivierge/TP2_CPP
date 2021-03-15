@@ -1,7 +1,18 @@
-#include <stdio.h>
+#include "datapoint.h"
 
-int main(int argc, char **argv)
-{
-	printf("hello world\n");
-	return 0;
+#include <iostream>
+#include <string>
+#include <fstream>
+#include <set>
+
+int main(){
+
+    std::ifstream rawdata_file("rawdata.txt");
+    while(!rawdata_file.eof()){
+        
+    }
+    
+    rawdata_file.close();
+    
+    
 }

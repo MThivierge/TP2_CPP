@@ -17,7 +17,7 @@ class Datapoint{
 
 		double getLongitude() const;
 
-		bool orator<(const Datapoint& right_datapoint) const;
+		bool operator<(const Datapoint& right_datapoint) const;
 
 		
 };

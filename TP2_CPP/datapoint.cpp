@@ -15,15 +15,15 @@ double Datapoint::getLongitude() const{
 	return this->longitude;
 }
 		
-bool Datapoint::orator<(const Datapoint& right_datapoint) const{
+bool Datapoint::operator<(const Datapoint& right_datapoint) const{
 
 	//L'arbre doit aller du nord vers le sud (donc 40.71 doit être à gauche de -40.71)
 	//Si la lattitude est identique l'arbre doit aller de l'ouest vers l'est (donc -110.55 doit être à gauche de 110.55)
 
-	if(this->latitude > right_datapoint.getLatitude){
+	if(this->latitude > right_datapoint.getLatitude()){
 		return true;
 	}
-	else if( this->latitude == right_datapoint.getLatitude && this->longitude < right_datapoint.getLongitude){
+	else if( this->latitude == right_datapoint.getLatitude() && this->longitude < right_datapoint.getLongitude()){
 		return true;
 	}
 	
