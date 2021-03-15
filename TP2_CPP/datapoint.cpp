@@ -1,6 +1,6 @@
 #include "datapoint.h"
 
-Datapoint::Datapoint(std::string timestamp, double latitude, double longitude, int temparature){
+Datapoint::Datapoint(std::string timestamp, double latitude, double longitude, double temparature){
 	this->timestamp = timestamp;
 	this->latitude = latitude;
 	this->longitude = longitude;

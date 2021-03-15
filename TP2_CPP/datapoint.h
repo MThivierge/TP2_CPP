@@ -8,10 +8,10 @@ class Datapoint{
 		std::string timestamp;
 		double latitude;
 		double longitude;
-		int temperature;
+		double temperature;
 	
 	public:
-		Datapoint(std::string timestamp, double latitude, double longitude, int temparature);
+		Datapoint(std::string timestamp, double latitude, double longitude, double temparature);
 		
 		double getLatitude() const;
 
