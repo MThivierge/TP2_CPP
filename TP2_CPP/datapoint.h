@@ -2,6 +2,7 @@
 #define __DATAPOINT_H__
 
 #include <iostream>
+#include <string>
 
 class Datapoint{
 	private:
@@ -18,6 +19,8 @@ class Datapoint{
 		double getLongitude() const;
 
 		bool operator<(const Datapoint& right_datapoint) const;
+        
+        std::string printData() const;
 
 		
 };

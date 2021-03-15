@@ -30,3 +30,8 @@ bool Datapoint::operator<(const Datapoint& right_datapoint) const{
 	return false;
 
 }
+
+std::string Datapoint::printData() const{
+    std::string data_to_print= timestamp+" "+std::to_string(latitude)+" "+std::to_string(longitude)+" "+std::to_string(temperature);
+    return data_to_print;
+}
