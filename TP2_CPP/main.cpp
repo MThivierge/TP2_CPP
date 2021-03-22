@@ -4,6 +4,7 @@
 #include <string>
 #include <fstream>
 #include <set>
+#include <stdexcept>
 
 int main(){
     //Création du conteneur pour les objets Datapoint
@@ -14,11 +15,11 @@ int main(){
     
     //Extraction des données du fichier rawdata.txt
     while(!rawdata_file.eof()){
-        
-        double latitude;
-        double longitude;
+
+        std::string latitude;
+        std::string longitude;
         std::string station_id;
-        double temperature;
+        std::string temperature;
         std::string timestamp;
             
         /* Extraction de chaque données sur une ligne
@@ -28,15 +29,21 @@ int main(){
          * latitude, longitude, identifiant de station météo, température, timestamp
          * *************************************************************************************
         */
+        
         rawdata_file>> latitude;
         rawdata_file>> longitude;
         rawdata_file>> station_id; //Pour que le curseur puisse se rendre ensuite à temperature
-        rawdata_file>> temperature;
-        rawdata_file>> timestamp;
+        if( (char) rawdata_file.peek() == '\n'){
+            std::cout<<"Ligne incomplète"<<std::endl;
+        }
+        else{
+            rawdata_file>> temperature; 
+            rawdata_file>> timestamp;
             
-        if(!rawdata_file.eof()){
-            //Création et ajout d'un objet Datapoint dans le conteneur datas
-            datas.insert(Datapoint(timestamp, latitude, longitude, temperature));
+            if(!rawdata_file.eof()){
+                //Création et ajout d'un objet Datapoint dans le conteneur datas
+                datas.insert(Datapoint(timestamp, std::stod(latitude), std::stod(longitude), std::stod(temperature)));
+            }
         }
     }
     
