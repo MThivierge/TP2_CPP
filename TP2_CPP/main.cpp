@@ -33,6 +33,8 @@ int main(){
         rawdata_file>> latitude;
         rawdata_file>> longitude;
         rawdata_file>> station_id; //Pour que le curseur puisse se rendre ensuite à temperature
+        
+        //Vérification si la ligne s'arrête là ou si on a les données pour temperature et timestamp
         if( (char) rawdata_file.peek() == '\n'){
             std::cout<<"Ligne incomplète"<<std::endl;
         }
